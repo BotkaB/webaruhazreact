@@ -1,38 +1,49 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  text-align: center; /* Szöveg középre igazítása */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Háttérszín beállítása */
+  min-height: 20vh; /* Minimális magasság beállítása */
+  display: flex; /* Flexbox elrendezés */
+  flex-direction: column; /* Elemek oszlopirányú elrendezése */
+  align-items: center; /* Elemek középre igazítása vízszintesen */
+  justify-content: center; /* Elemek középre igazítása függőlegesen */
+  font-size: calc(10px + 2vmin); /* Betűméret dinamikus beállítása */
+  color: white; /* Betűszín beállítása */
 }
 
-.App-link {
-  color: #61dafb;
+.App-container {
+  display: flex; /* Flexbox elrendezés a fő tartalomnak */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.termekek {
+  flex: 1; /* A tartalom rugalmasan kitölti a rendelkezésre álló helyet */
+  padding: 20px; /* Belső margó hozzáadása */
+}
+
+.kosar-oldalsav {
+  width: 300px; /* Fix szélesség beállítása az oldalsávnak */
+  padding: 20px; /* Belső margó hozzáadása */
+  background-color: #f8f9fa; /* Háttérszín beállítása */
+  border-left: 1px solid #ddd; /* Bal oldali szegély hozzáadása */
+  position: sticky; /* Fixálás az oldal jobb szélén */
+  top: 0; /* A tetejéhez igazítás */
+  height: 100vh; /* Teljes képernyőmagasság */
+  overflow-y: auto; /* Függőleges görgetés engedélyezése */
+}
+
+@media (max-width: 600px) {
+  .App-container {
+    flex-direction: column; /* Oszlopirányú elrendezés kisebb képernyőkön */
   }
-  to {
-    transform: rotate(360deg);
+
+  .kosar-oldalsav {
+    width: 100%; /* Teljes szélesség kisebb képernyőkön */
+    flex: 0 1 auto; /* Rugalmas elrendezés */
+    position: relative; /* Fixálás megszüntetése */
+    height: auto; /* Automatikus magasság */
+    border-left: none; /* Bal oldali szegély eltávolítása */
+    border-top: 1px solid #ddd; /* Felső szegély hozzáadása */
   }
 }

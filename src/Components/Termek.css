@@ -1,0 +1,6 @@
+.card {
+    flex: 1 1 auto; /* Rugalmasan igazodik a rendelkezésre álló helyhez */
+    display: flex; /* Flexbox elrendezés alkalmazása */
+    flex-direction: column; /* A belső elemek függőleges elrendezése */
+  }
+  
