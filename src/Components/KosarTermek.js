@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import Button from "./Button"; // Button komponens importálása
+import { KosarContext } from "../Context/KosarContext";
 
-// 'KosarTermek' komponens definiálása, amely négy prop-ot kap: 'termek', 'noveles', 'csokkentes' és 'torles'
-export default function KosarTermek({ termek, noveles, csokkentes, torles }) {
+
+export default function KosarTermek({ termek }) {
+    const{csokkentes,noveles,torles}=useContext(KosarContext);
     return (
         <tr>
             <td>
@@ -27,13 +29,4 @@ export default function KosarTermek({ termek, noveles, csokkentes, torles }) {
     );
 }
 
-/*
-Magyarázat:
-- A `KosarTermek` komponens négy prop-ot kap: `termek`, `noveles`, `csokkentes` és `torles`.
-- A `termek` tartalmazza a termék adatait, beleértve a nevét, képét, árát és mennyiségét.
-- A `noveles` egy függvény, amely növeli a termék mennyiségét.
-- A `csokkentes` egy függvény, amely csökkenti a termék mennyiségét.
-- A `torles` egy függvény, amely eltávolítja a terméket a kosárból.
-- Az `img` elem kicsiben jeleníti meg a termékképet, megőrizve az arányait.
-- A gombok (`Button` komponens) az eseménykezelő funkciókat hívják meg.
-*/
+

@@ -29,7 +29,7 @@
   border-left: 1px solid #ddd; /* Bal oldali szegély hozzáadása */
   position: sticky; /* Fixálás az oldal jobb szélén */
   top: 0; /* A tetejéhez igazítás */
-  height: 100vh; /* Teljes képernyőmagasság */
+  height:auto;
   overflow-y: auto; /* Függőleges görgetés engedélyezése */
 }
 
@@ -42,6 +42,7 @@
     width: 100%; /* Teljes szélesség kisebb képernyőkön */
     flex: 0 1 auto; /* Rugalmas elrendezés */
     position: relative; /* Fixálás megszüntetése */
+    max-height: none; /* Maximális magasság eltávolítása */
     height: auto; /* Automatikus magasság */
     border-left: none; /* Bal oldali szegély eltávolítása */
     border-top: 1px solid #ddd; /* Felső szegély hozzáadása */

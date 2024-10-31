@@ -1,62 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Kosar from "./Kosar";
 import Termekek from "./Termekek";
-import { termekLista } from "../TermekAdatok";
+import { KosarContext } from "../Context/KosarContext"; // KosarContext importálása
 
 // 'KosarKezelo' komponens definiálása
 export default function KosarKezelo() {
-  // Kosár állapotának nyomon követése
-  const [kosar, setKosar] = useState([]);
-
-  // Termék hozzáadása a kosárhoz
-  const katt = (termek) => {
-    const letezoTermek = kosar.find((t) => t.id === termek.id);
-    if (letezoTermek) {
-      setKosar(
-        kosar.map((t) =>
-          t.id === termek.id ? { ...t, mennyiseg: t.mennyiseg + 1 } : t
-        )
-      );
-    } else {
-      setKosar([...kosar, { ...termek, mennyiseg: 1 }]);
-    }
-  };
-
-  // Mennyiség növelése
-  const noveles = (termek) => {
-    setKosar(
-      kosar.map((t) =>
-        t.id === termek.id ? { ...t, mennyiseg: t.mennyiseg + 1 } : t
-      )
-    );
-  };
-
-  // Mennyiség csökkentése
-  const csokkentes = (termek) => {
-    if (termek.mennyiseg === 1) {
-      torles(termek);
-    } else {
-      setKosar(
-        kosar.map((t) =>
-          t.id === termek.id ? { ...t, mennyiseg: t.mennyiseg - 1 } : t
-        )
-      );
-    }
-  };
-
-  // Termék törlése a kosárból
-  const torles = (termek) => {
-    setKosar(kosar.filter((t) => t.id !== termek.id));
-  };
+  const { termekLista, kosar, noveles, csokkentes, torles, kosarbaRak } = useContext(KosarContext); // KosarContext használata a szükséges értékek eléréséhez
 
   return (
     <div className="App-container">
       <div className="termekek">
-        {/* Termékek komponens meghívása 'katt' prop-pal */}
-        <Termekek termekLista={termekLista} katt={katt} />
+        {/* Termékek komponens meghívása és a contextből származó terméklista átadása */}
+        <Termekek termekLista={termekLista} katt={kosarbaRak} />
       </div>
       <aside className="kosar-oldalsav">
-        {/* Kosár komponens meghívása és a megfelelő prop-ok átadása */}
+        {/* Kosár komponens meghívása és a contextből származó értékek és függvények átadása */}
         <Kosar
           kosar={kosar}
           noveles={noveles}
@@ -67,3 +25,10 @@ export default function KosarKezelo() {
     </div>
   );
 }
+
+/*
+Magyarázat:
+- A `KosarKezelo` komponens a `KosarContext` használatával éri el a szükséges adatokat és függvényeket (termekLista, kosar, noveles, csokkentes, torles, kosarbaRak).
+- A `Termekek` komponens a contextből származó `termekLista`-t és a `kosarbaRak` függvényt kapja propként.
+- A `Kosar` komponens a contextből származó `kosar`, `noveles`, `csokkentes`, és `torles` értékeket és függvényeket kapja propként.
+*/

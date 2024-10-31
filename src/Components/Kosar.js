@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import KosarTermek from "./KosarTermek";
+import { KosarContext } from "../Context/KosarContext";
 
-// 'Kosar' komponens definiálása, amely négy prop-ot kap: 'kosar', 'noveles', 'csokkentes' és 'torles'
-export default function Kosar({ kosar, noveles, csokkentes, torles }) {
+
+export default function Kosar() {
+
+  const {kosar, noveles, csokkentes, torles}=useContext(KosarContext);
   // Végösszeg kiszámítása két tizedesjegyre kerekítve
   const vegosszesen = kosar.reduce(
     (osszes, termek) => osszes + termek.price * termek.mennyiseg,
