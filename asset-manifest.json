@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/webaruhazreact/static/css/main.1489bafc.css",
+    "main.js": "/webaruhazreact/static/js/main.41122850.js",
+    "static/js/453.7e3e0d99.chunk.js": "/webaruhazreact/static/js/453.7e3e0d99.chunk.js",
+    "index.html": "/webaruhazreact/index.html",
+    "main.1489bafc.css.map": "/webaruhazreact/static/css/main.1489bafc.css.map",
+    "main.41122850.js.map": "/webaruhazreact/static/js/main.41122850.js.map",
+    "453.7e3e0d99.chunk.js.map": "/webaruhazreact/static/js/453.7e3e0d99.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1489bafc.css",
+    "static/js/main.41122850.js"
+  ]
+}
